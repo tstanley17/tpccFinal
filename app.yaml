@@ -1,19 +1,13 @@
 runtime: php73
-
-runtime_config:
-  document_root: .
+api_version: 1
 
 handlers:
-
 - url: /(.+\/(css|js))$
   static_files: \1
   upload: .+.(js|css)$
 
-- url: /.*
-  script: auto
-
-entrypoint:
-  server newOrderInput.php
+- url: /.
+  script: newOrderInput.php
 
 env_variables:
   CLOUDSQL_USER: root
