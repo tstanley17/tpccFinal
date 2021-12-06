@@ -1,12 +1,11 @@
 runtime: php73
-api_version: 1
 
 handlers:
 - url: /(.+\/(css|js))$
   static_files: \1
   upload: .+.(js|css)$
 
-- url: /.
+- url: .*
   script: newOrderInput.php
 
 env_variables:
