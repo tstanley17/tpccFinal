@@ -1,0 +1,22 @@
+runtime: php73
+
+runtime_config:
+  document_root: .
+
+handlers:
+
+- url: /(.+\/(css|js))$
+  static_files: \1
+  upload: .+.(js|css)$
+
+- url: /.*
+  script: auto
+
+entrypoint:
+  server newOrderInput.php
+
+env_variables:
+  CLOUDSQL_USER: root
+  CLOUDSQL_DB: dbtpcc
+  CLOUDSQL_PASSWORD: Basketball14!
+  CLOUDSQL_DSN: /tpcc-334100:us-central1:tpccdb
